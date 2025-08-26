@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
-  <title>SBPC 2025 • Certificados (PDF)</title>
+  <meta name="color-scheme" content="light">
+  <title>SBPC 2025 • Certificados</title>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,15 +24,6 @@
       padding: 24px;
       text-align: center;
     }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background:
-          radial-gradient(900px 450px at 10% -10%, rgba(124,58,237,0.22), transparent 60%),
-          radial-gradient(700px 350px at 110% 110%, rgba(34,211,238,0.22), transparent 60%),
-          #0d1117;
-        color: #e6edf3;
-      }
-    }
 
     .card {
       width: 100%;
@@ -43,9 +34,6 @@
       box-shadow: 0 10px 30px rgba(2, 6, 23, 0.10);
       padding: 32px 24px;
     }
-    @media (prefers-color-scheme: dark) {
-      .card { background: #0f1621; border-color: #1f2a37; }
-    }
 
     .brand {
       width: 64px; height: 64px;
@@ -55,9 +43,17 @@
       background: linear-gradient(135deg, #2563eb 30%, #7c3aed 90%);
       color: #fff;
     }
-    h1 { margin: 0; font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+      line-height: 1.3;
+    }
+    h1 span {
+      display: block; /* força quebra de linha */
+    }
+
     .subtitle { margin: 12px 0 20px; color: #475569; font-size: 1rem; }
-    @media (prefers-color-scheme: dark) { .subtitle { color: #94a3b8; } }
 
     .btn {
       border: 1px solid #e5e7eb;
@@ -72,12 +68,9 @@
       box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
       transition: transform .12s ease, box-shadow .2s ease;
     }
+
     .btn:hover { transform: translateY(-1px); }
     .btn:active { transform: translateY(0); }
-    .btn:focus-visible { outline: 4px solid rgba(147,197,253,.9); }
-    @media (prefers-color-scheme: dark) {
-      .btn { border-color: #1f2a37; background: #7dd3fc; color: #0b0f14; }
-    }
 
     .status { margin-top: 14px; font-size: .95rem; }
     .status.ok { color: #16a34a; }
@@ -85,7 +78,6 @@
     .status a { color: inherit; text-decoration: underline; }
 
     footer { margin-top: 20px; color: #475569; font-size: .9rem; }
-    @media (prefers-color-scheme: dark) { footer { color: #94a3b8; } }
   </style>
 </head>
 <body>
@@ -99,7 +91,11 @@
       </svg>
     </div>
 
-    <h1 id="title">SBPC 2025 • Certificados das Oficinas</h1>
+    <h1 id="title">
+      <span>SBPC - 2025</span>
+      <span>Certificados das Oficinas</span>
+    </h1>
+
     <p class="subtitle">Clique abaixo para acessar e procurar seu certificado.</p>
 
     <a id="openDrive" class="btn" href="#" target="_blank" rel="noopener noreferrer">
@@ -134,7 +130,7 @@
     if (isValidDriveFolder(FINAL_DRIVE_URL)) {
       openBtn.href = FINAL_DRIVE_URL;
       statusEl.className = "status ok";
-      statusEl.innerHTML = 'Qualquer dúvida contate nosso suporte técnico: <a href="mailto:ravell.lopes@gmail.com">ravell.lopes@gmail.com</a>';
+      statusEl.innerHTML = 'Qualquer dúvida contate nosso suporte: <a href="mailto:ravell.lopes@gmail.com">ravell.lopes@gmail.com</a>';
     } else {
       openBtn.href = "#";
       openBtn.setAttribute("aria-disabled", "true");
